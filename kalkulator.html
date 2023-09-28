@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spartan gaming - Kalkulator DPS</title>
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
     <style>
@@ -63,7 +65,7 @@
             background-color: rgb(253, 143, 0);
             clear:both; 
         }
-        #resault {
+        #result {
             border: 1px solid blue;
             padding: 5px;
             min-height: 20px;
@@ -77,7 +79,7 @@
 </head>
 <body>
     <header><h1>Spartan gaming - kalkulator DPS</h1></header>
-    <table>
+    <table id="mainTable">
         <td id="leftColumn">
             <ul>
                 <li><a href="index.html">Start</a></li>
@@ -103,26 +105,8 @@
                 <input type="button" value="countDPS" onclick="countDPS()"><br><br>
             </form>
         
-            <div id="resault"></div>
-        
-            <script>
-                function countDPS() {
-                    const name = document.getElementById("name").value;
-                    const level = parseInt(document.getElementById("level").value);
-                    const time = parseFloat(document.getElementById("time").value);
-                    const damage = parseFloat(document.getElementById("damage").value);
-        
-                    if (isNaN(level) || isNaN(time) || isNaN(damage)) {
-                        alert("Wprowadź poprawne dane.");
-                        return;
-                    }
-        
-                    const dps = (damage * time) / level;
-        
-                    const resault = document.getElementById("resault");
-                    resault.innerHTML = `DPS postaci ${name} to: ${dps.toFixed(2)}`;
-                }
-            </script>
+            <div id="result"></div>
+
         </td>
     </table>
     
@@ -130,5 +114,6 @@
         IMIĘ NAZWISKO KLASA<br>
         <i>Data wykonania: <b>28.09.2023</b></i>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
