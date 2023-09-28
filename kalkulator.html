@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spartan gaming - Kalkulator DPS</title>
+</head>
+<body>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            font-family: Tahoma;
+            color: black;
+        }
+        header{
+            background-color: #fd8f00;
+            font-family: Arial Black;
+            text-align: center;
+            padding: 10px;
+            font-size: 20px;
+        }
+        h1{
+            display: inline-block;
+            color: #fffd6e;
+        }
+        #leftColumn{
+            width: 20%;
+            padding: 0px;
+            min-height: 500px;
+            background-color: #fbb75f;
+        }
+        li{
+            list-style: circle;
+            color: red;
+            padding: 10px 0px 10px 0px;
+        }
+        a{
+            color: #9f0000;
+            text-decoration: none;
+            font-size: 20px;
+            font-family: Tahoma;
+        }
+        a:hover{
+            color: #d64e4e;
+        }
+        #rightColumn{
+            width: 80%;
+            padding: 0px;
+            min-height: 500px;
+            background-color: #ffcb87;
+            text-align: center;
+        }
+        table{
+            width: 100%;
+            height: 100%;
+            border-collapse: collapse;
+        }
+        footer{
+            padding: 10px;
+            text-align: right;
+            background-color: rgb(253, 143, 0);
+            clear:both; 
+        }
+        #countDPS {
+            border: 1px solid blue;
+            padding: 5px;
+            min-height: 20px;
+            text-align: center;
+            width: 50%;
+            margin: 0 auto;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header><h1>Spartan gaming - kalkulator DPS</h1></header>
+    <table>
+        <td id="leftColumn">
+            <ul>
+                <li><a href="index.html">Start</a></li>
+                <li><a href="druzyny.html">Drużyny</a></li>
+                <li><a href="kalkulator.html">Kalkulator</a></li>
+                <li><a href="dolacz.html">Dołącz do nas!</a></li>
+            </ul>
+        </td>
+        <td id="rightColumn">
+            <form id="kalkulator-form">
+                <label for="name">Imię postaci:</label><br>
+                <input type="text" id="name" name="name" required><br>
+        
+                <label for="level">Poziom postaci:</label><br>
+                <input type="number" id="level" name="level" required><br>
+        
+                <label for="time">Czas trwania walki w sekundach:</label><br>
+                <input type="number" id="time" name="time" required><br>
+        
+                <label for="damage">Obrażenia broni/czaru na sekundę:</label><br>
+                <input type="number" id="damage" name="damage" required><br><br>
+        
+                <input type="button" value="countDPS" onclick="countDPS()"><br><br>
+            </form>
+        
+            <div id="resault"></div>
+        
+            <script>
+                function countDPS() {
+                    const name = document.getElementById("name").value;
+                    const level = parseInt(document.getElementById("level").value);
+                    const time = parseFloat(document.getElementById("time").value);
+                    const damage = parseFloat(document.getElementById("damage").value);
+        
+                    if (isNaN(level) || isNaN(time) || isNaN(damage)) {
+                        alert("Wprowadź poprawne dane.");
+                        return;
+                    }
+        
+                    const dps = (damage * time) / level;
+        
+                    const resault = document.getElementById("resault");
+                    resault.innerHTML = `DPS postaci ${name} to: ${dps.toFixed(2)}`;
+                }
+            </script>
+        </td>
+    </table>
+    
+    <footer>
+        IMIĘ NAZWISKO KLASA<br>
+        <i>Data wykonania: <b>28.09.2023</b></i>
+    </footer>
+</body>
+</html>
