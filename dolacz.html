@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPARTAN GAMING</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            font-family: Tahoma;
+            color: black;
+        }
+        header{
+            background-color: #fd8f00;
+            font-family: Arial Black;
+            text-align: center;
+            padding: 10px;
+            font-size: 20px;
+        }
+        h1{
+            display: inline-block;
+            color: #fffd6e;
+        }
+        #leftColumn{
+            width: 20%;
+            padding: 0px;
+            min-height: 500px;
+            background-color: #fbb75f;
+        }
+        li{
+            list-style: circle;
+            color: red;
+            padding: 10px 0px 10px 0px;
+        }
+        a{
+            color: #9f0000;
+            text-decoration: none;
+            font-size: 20px;
+            font-family: Tahoma;
+        }
+        a:hover{
+            color: #d64e4e;
+        }
+        #rightColumn{
+            width: 80%;
+            padding: 0px;
+            min-height: 500px;
+            background-color: #ffcb87;
+            text-align: center;
+        }
+        table{
+            width: 100%;
+            height: 100%;
+            border-collapse: collapse;
+        }
+        footer{
+            padding: 10px;
+            text-align: right;
+            background-color: rgb(253, 143, 0);
+            clear:both; 
+        }
+        input[type=submit] {
+            background-color: green;
+            border: 2px solid black;
+            padding: 5px;
+            color: white;
+        }
+        input[type=reset] {
+            background-color: red;
+            border: 2px solid black;
+            padding: 5px;
+            color: white;
+        }
+        .formLeftColumn{
+            text-align: right;
+        }
+        .formRightColumn{
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <header><h1>Spartan gaming</h1></header>
+    <table>
+        <td id="leftColumn">
+            <ul>
+                <li><a href="index.html">Start</a></li>
+                <li><a href="druzyny.html">Drużyny</a></li>
+                <li><a href="kalkulator.html">Kalkulator</a></li>
+                <li><a href="dolacz.html">Dołącz do nas!</a></li>
+            </ul>
+        </td>
+        <td id="rightColumn">
+            <form method='post' action='zgloszenie.php'>
+                <table>
+                    <tr>
+                        <td class="formLeftColumn"><label>Imie postaci:</label></td>
+                        <td class="formRightColumn"><input type="text" name="imie"></td>
+                    </tr>
+                    <tr>
+                        <td class="formLeftColumn"><label>Poziom postaci:</label></td>
+                        <td class="formRightColumn"><input type="text" name="poziom"><br></td>
+                    </tr>
+                    <tr>
+                        <td class="formLeftColumn"><label>Klasa postaci:</label></td>
+                        <td class="formRightColumn"><select name="klasa">
+                            <option>- wybierz -</option>
+                            <option value="wojownik">Wojownik</option>
+                            <option value="mag">Mag</option>
+                            <option value="zabojca">Zabójca</option>
+                            <option value="zwiadowca">Zwiadowca</option>
+                        </td>
+                    </tr>
+                    <tr>
+                        <!-- stwórz radio dla "postać rankingowa?" Opcje Nie Tak Może -->
+                        <td class="formLeftColumn"><label>Postać rankingowa?</label></td>
+                        <td class="formRightColumn">
+                            <input type="radio" name="rankingowa" value="nie">Nie
+                            <input type="radio" name="rankingowa" value="tak">Tak
+                            <input type="radio" name="rankingowa" value="moze">Może
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="formLeftColumn"><label>Preferowane role</label></td>
+                        <td class="formRightColumn">
+                            <input type="checkbox" name="rola[]" value="support">Support<br>
+                            <input type="checkbox" name="rola[]" value="damage">Damage<br>
+                            <input type="checkbox" name="rola[]" value="medic">Medic<br>
+                            <input type="checkbox" name="rola[]" value="tank">Tank<br>
+                            <input type="checkbox" name="rola[]" value="assasin">Assasin<br>
+                            <input type="checkbox" name="rola[]" value="thief">Thief<br>
+                        </td>
+                    </tr>
+                <tr>
+                    <td class="formLeftColumn"><input type="submit" value="Wyślij zgłoszenie"></td>
+                    <td class="formRightColumn"><input type="reset" value="Wyczyść formularz"></td>
+                </tr>
+                </table>
+            </form>
+        </td>
+    </table>
+    <footer>
+        IMIĘ NAZWISKO KLASA<br>
+        <i>Data wykonania: <b>28.09.2023</b></i>
+    </footer>
+</body>
+</html>
